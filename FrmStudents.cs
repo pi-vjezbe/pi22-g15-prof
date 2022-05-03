@@ -16,5 +16,10 @@ namespace Evaluation_Manager
         {
             InitializeComponent();
         }
+
+        private void FrmStudents_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = StudentRepository.GetStudents();
+        }
     }
 }

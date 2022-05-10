@@ -19,7 +19,19 @@ namespace Evaluation_Manager
 
         private void FrmStudents_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = StudentRepository.GetStudents();
+            dgvStudents.DataSource = StudentRepository.GetStudents();
         }
-    }
+
+		private void btnEvaluateStudent_Click(object sender, EventArgs e) {
+            //dohvat studenta
+            Student selectedStudent = dgvStudents.CurrentRow.DataBoundItem as Student;
+
+            //prikaz nove forme i slanje studenta
+            if (selectedStudent != null) 
+            {
+                FrmEvaluation frmEvaluation = new FrmEvaluation(selectedStudent);
+                frmEvaluation.ShowDialog();
+			}
+		}
+	}
 }

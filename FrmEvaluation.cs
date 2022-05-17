@@ -40,6 +40,21 @@ namespace Evaluation_Manager
 			currentActivity.MaxPoints;
 			numPoints.Minimum = 0;
 			numPoints.Maximum = currentActivity.MaxPoints;
+
+			//popuniti podatke o evaluaciji ako je već napravljena
+			var evaluation = EvaluationRepository.GetEvaluation(SelectedStudent, currentActivity);
+			if (evaluation != null)
+            {
+				txtTeacher.Text = evaluation.Evaluator.ToString();
+				txtEvaluationDate.Text = evaluation.EvaluationDate.ToString("dd.MM.yyyy");
+				numPoints.Value = evaluation.Points;
+            }
+			else
+            {
+				txtTeacher.Text = "";
+				txtEvaluationDate.Text = "";
+				numPoints.Value = 0;
+            }
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e)

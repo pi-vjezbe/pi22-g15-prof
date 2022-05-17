@@ -61,5 +61,25 @@ namespace Evaluation_Manager
 		{
 			this.Close();
 		}
-	}
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+			var currentActivity = cboActivities.SelectedItem as Activity;
+			var evaluation = EvaluationRepository.GetEvaluation(SelectedStudent, currentActivity);
+			int points = (int)numPoints.Value;
+			if (evaluation != null)
+            {
+				EvaluationRepository.UpdateEvaluation(evaluation, FrmLogin.LoggedTeacher, points);
+            }
+			else
+            {
+				EvaluationRepository.InsertEvaluation(SelectedStudent, currentActivity, FrmLogin.LoggedTeacher, points);
+            }
+
+			//nepopularan način osvježavanja sučelja,
+			//bolje bi bilo imati metodu koja se samo bavi osvježavanje sučelja,
+			//ali to ćemo jednom drugom zgodom
+			cboActivities_SelectedIndexChanged(null, null);
+		}
+    }
 }

@@ -8,28 +8,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Evaluation_Manager {
-	public partial class FrmLogin : Form {
+namespace Evaluation_Manager
+{
+	public partial class FrmLogin : Form
+	{
+		public static Teacher LoggedTeacher { get; set; }
 
-		public FrmLogin() {
+		public FrmLogin()
+		{
+			LoggedTeacher = null;
 			InitializeComponent();
-			}
+		}
 
-		private void btnLogin_Click(object sender, EventArgs e) {
-			if (txtUsername.Text == "") {
+		private void btnLogin_Click(object sender, EventArgs e)
+		{
+			if (txtUsername.Text == "")
+			{
 				MessageBox.Show("Korisničko ime nije uneseno!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				} else if (txtPassword.Text == "") {
+			}
+			else if (txtPassword.Text == "")
+			{
 				MessageBox.Show("Lozinka nije unesena!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				} else {
-				if (txtUsername.Text == username && txtPassword.Text == password) {
+			}
+			else
+			{
+				Teacher teacher = TeacherRepository.GetTeacher(txtUsername.Text);
+				if (teacher != null && txtPassword.Text == teacher.Password)
+				{
+					LoggedTeacher = teacher;
 					FrmStudents frmStudents = new FrmStudents();
 					Hide();
 					frmStudents.ShowDialog();
 					Close();
-					} else {
+				}
+				else
+				{
 					MessageBox.Show("Krivi podaci!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					}
 				}
 			}
 		}
 	}
+}

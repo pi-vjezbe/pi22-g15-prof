@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evaluation Manager", "Evaluation Manager.csproj", "{95A6A7A4-526D-467E-BC40-3FE9818F4ACD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLayer", "..\DBLayer\DBLayer.csproj", "{1916EAC0-0666-493B-B0C2-4673C1D32659}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{95A6A7A4-526D-467E-BC40-3FE9818F4ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95A6A7A4-526D-467E-BC40-3FE9818F4ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95A6A7A4-526D-467E-BC40-3FE9818F4ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1916EAC0-0666-493B-B0C2-4673C1D32659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1916EAC0-0666-493B-B0C2-4673C1D32659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1916EAC0-0666-493B-B0C2-4673C1D32659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1916EAC0-0666-493B-B0C2-4673C1D32659}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

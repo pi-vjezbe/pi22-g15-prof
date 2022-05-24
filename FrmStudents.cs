@@ -34,5 +34,11 @@ namespace Evaluation_Manager
 				frmEvaluation.ShowDialog();
 			}
 		}
-	}
+
+        private void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+			FrmFinalReport frmFinalReport = new FrmFinalReport();
+			frmFinalReport.ShowDialog();
+        }
+    }
 }
